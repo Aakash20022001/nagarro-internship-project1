@@ -7,7 +7,7 @@ const localStrategy = require('passport-local');
 const User = require('./models/user');  
 const flash = require('connect-flash');
 const {isLoggedIn} = require('./middleware');
-
+var port=process.env.PORT||3000;
 // Routes 
 
 const authRoutes = require('./routes/authRoutes');
@@ -84,6 +84,6 @@ app.get('/',isLoggedIn,(req,res)=>{
 
 
 
-app.listen(3000,()=>{
+app.listen(port,()=>{
     console.log("server running on 3000");
 })
