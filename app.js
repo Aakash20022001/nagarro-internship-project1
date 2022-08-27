@@ -12,14 +12,14 @@ const {isLoggedIn} = require('./middleware');
 
 const authRoutes = require('./routes/authRoutes');
 const profileRoutes = require('./routes/profile');
-
+require ("dotenv").config();
 // APIs
 const postsApiRoute = require('./routes/api/posts');
 
 
 const mongoose = require('mongoose');
 const { ppid } = require('process');
-mongoose.connect('mongodb://localhost:27017/twitter')
+mongoose.connect(process.env.DATABASE)
 .then(()=>{
     console.log("db connected");
 })
